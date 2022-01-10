@@ -1,8 +1,5 @@
 <?php
 
-use ICampeonato as GlobalICampeonato;
-use IEquipoFutbol as GlobalIEquipoFutbol;
-
 interface IEquipoFutbol{
     public function getNumeroJugadores();
     public function juegaPartido();
@@ -48,5 +45,5 @@ class EquipoFutbol implements IEquipoFutbol, ICampeonato{
     var_dump($equipo instanceof ICampeonato);
     echo "<br>";
     echo "es instancia de IEquipoFutbol? ";
-    var_dump($equipo instanceof GlobalIEquipoFutbol);
+    var_dump($equipo instanceof IEquipoFutbol);
 ?>
