@@ -13,11 +13,11 @@ abstract class  FiguraGeometrica{
 
 class Cuadrado extends FiguraGeometrica{
 
-    private string $tipoFigura = "cuadrado";
-    private float $lado = 4; 
+    private string $tipoFigura;
+    private float $lado; 
 
     function __construct($color, $tipoFigura, $lado){
-        parent::__construct($color);
+        $this->color = $color;
         $this->tipoFigura = $tipoFigura;
         $this->lado = $lado;           
     }
@@ -33,11 +33,15 @@ class Cuadrado extends FiguraGeometrica{
 
 class Triangulo extends FiguraGeometrica{
 
-    private string $tipoFigura = "triangulo";
+    private string $tipoFigura;
+    private float $base;
+    private float $altura;
 
-    function __construct($color, $tipoFigura){
-        parent::__construct($color);
-        $this->tipoFigura = $tipoFigura;           
+    function __construct($color, $tipoFigura, $base, $altura){
+        $this->color = $color;
+        $this->tipoFigura = $tipoFigura;      
+        $this->base = $base;
+        $this->altura = $altura;     
     }
 
     function dibuja(){
@@ -45,17 +49,20 @@ class Triangulo extends FiguraGeometrica{
     }
 
     function area(){
+        return ($this->base * $this->altura)/2;
 
     }
 }
 
 class Circulo extends FiguraGeometrica{
 
-    private string $tipoFigura = "circulo";
+    private string $tipoFigura;
+    private float $radio;
 
-    function __construct($color, $tipoFigura){
-        parent::__construct($color);
-        $this->tipoFigura = $tipoFigura;           
+    function __construct($color, $tipoFigura, $radio){
+        $this->color = $color;
+        $this->tipoFigura = $tipoFigura;   
+        $this->radio = $radio;            
     }
 
     function dibuja(){
@@ -63,7 +70,23 @@ class Circulo extends FiguraGeometrica{
     }
 
     function area(){
-
+        return ($this->radio * $this->radio*pi());
     }
 }
+
+    $cuadrado = new Cuadrado("rojo","Cuadradito", 3);    
+    $triangulo = new Triangulo("azul", "Triangulito", 10, 2);    
+    $circulo = new Circulo("verde", "Circulito", 4);
+
+    echo $cuadrado->Area();
+    echo $cuadrado->dibuja();
+    echo "<br>";
+    echo $triangulo->Area();
+    echo $triangulo->dibuja();
+    echo "<br>";
+    echo $circulo->Area();
+    echo $circulo->dibuja();
+    echo "<br>";
+    
+
 ?>
