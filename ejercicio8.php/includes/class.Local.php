@@ -45,9 +45,9 @@
 
         function __toString()
         {
-            return "<p>Ciudad: <" . $this->ciudad . "><br></p><p>Calle: <" . $this->calle . 
-            "><br></p><p>Plantas: <" . $this->nPlantas . "><br></p><p>Dimensiones: (<" . 
-            $this->dimensiones . ">)<br></p>" ;
+            return "<p>Ciudad: " . $this->ciudad . "<br></p><p>Calle: " . $this->calle . 
+            "<br></p><p>Plantas: " . $this->nPlantas . "<br></p><p>Dimensiones: (" . 
+            $this->dimensiones . ")<br></p>" ;
         }
 
         function __clone()
