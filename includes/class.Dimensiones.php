@@ -17,11 +17,11 @@ class Dimensiones {
 
     public function __set($atributo, $valor){
 
-        if ($valor < 1){
-            echo "ERROR";
-        } else{
+        if (is_float($valor) && $valor > 1){
+            
             $this->$atributo=$valor;
-        }
+        } else{
+            echo "ERROR";        }
     } 
 
     function __toString()
