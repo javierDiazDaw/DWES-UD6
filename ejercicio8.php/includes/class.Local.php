@@ -1,6 +1,5 @@
 <?php
 
-    include_once "class.dimensiones.php";
     class Local{
         private string $ciudad;
         private string $calle;
@@ -14,24 +13,28 @@
                 $this->ciudad=$ciudad;
             }else{
                 echo "Error en el atributo ciudad";
+                die();
             }
             
             if(is_string($calle)){
                 $this->calle=$calle;
             }else{
                 echo "Error en el atributo calle";
+                die();
             }
 
-            if(is_int($nPlantas) && $nPlantas > 1 && $nPlantas <11){
+            if(is_int($nPlantas) && $nPlantas > 1 || $nPlantas <11){
                 $this->nPlantas=$nPlantas;
             }else{
                 echo "Error en el atributo numero de plantas";
+                die();
             }
           
             if($dimensiones instanceof Dimensiones){
                 $this->dimensiones=$dimensiones;
             }else{
                 echo "Error en el atributo dimensiones";
+                die();
             }   
         }   
 
