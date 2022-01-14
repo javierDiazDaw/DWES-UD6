@@ -27,13 +27,10 @@
 
         function añadir_persona($peso_persona)
         {
-            
+            $this->peso += $peso_persona;  
         }
 
-        function __toString()
-        {
-            return "Color: " . $this->color. ", peso: " . $this->peso . circula();
-        }
+        
     }
 ?>
 
