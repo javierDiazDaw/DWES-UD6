@@ -1,8 +1,8 @@
 <?php
 class Vivienda{
     
-    private string $tipoVivienda;
-    private float $valorMercado;
+    private  $tipoVivienda;
+    private  $valorMercado;
 
     function __construct($tipoVivienda, $valorMercado)
     {
