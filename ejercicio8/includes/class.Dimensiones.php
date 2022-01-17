@@ -1,8 +1,8 @@
 <?php
 class Dimensiones {
-    private float $alto;
-    private float $ancho;
-    private float $largo;
+    private /*float*/ $alto;
+    private /*float*/ $ancho;
+    private /*float*/ $largo;
 
     function __construct($alto, $ancho, $largo)
     {
@@ -21,13 +21,18 @@ class Dimensiones {
             
             $this->$atributo=$valor;
         } else{
-            echo "ERROR";        }
+            echo "ERROR: Los valores deben ser de tipo float y mayores que uno";
+            die();
+        }
+            
     } 
+
 
     function __toString()
     {
         return "alto = " . $this->alto . ", ancho = " . $this->ancho . ", largo = " . $this->largo;
     }
+
 }
 
 ?>

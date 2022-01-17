@@ -1,7 +1,7 @@
 <?php
     class LocalComercial extends Local{
-        private string $razonSocial;
-        private string $numeroLicencia; 
+        private /*string*/ $razonSocial;
+        private /*string*/ $numeroLicencia; 
 
         function __construct($ciudad, $calle, $nPlantas, 
         $dimensiones, $razonSocial, $numeroLicencia){
@@ -12,15 +12,25 @@
                 $this->razonSocial=$razonSocial;
             }else{
                 echo "Error en el atributo razon social";
+                die();
             }
 
             if(is_string($numeroLicencia)){
                 $this->numeroLicencia=$numeroLicencia;
             }else{
                 echo "Error en el atributo numero licencia";
+                die();
             }
         }
         
+        /*public function __get($atributo){
+            return $this->$atributo;
+        }
+
+        public function __set($atributo, $valor){
+            $this->$atributo=$valor;
+        }*/
+
         function __toString()
         {
             return "<p>" . parent::__toString() . "</p><p>Razón Social: " . 

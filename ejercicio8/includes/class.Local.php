@@ -1,10 +1,10 @@
 <?php
 
     class Local{
-        private string $ciudad;
-        private string $calle;
-        private int $nPlantas;        
-        private Dimensiones $dimensiones;
+        private /*string*/ $ciudad;
+        private /*string*/ $calle;
+        private /*int*/ $nPlantas;        
+        private /*Dimensiones*/ $dimensiones;
         
 
         function __construct($ciudad, $calle, $nPlantas, $dimensiones){
@@ -23,7 +23,7 @@
                 die();
             }
 
-            if(is_int($nPlantas) && $nPlantas > 1 || $nPlantas <11){
+            if(is_integer($nPlantas) && $nPlantas >= 1 && $nPlantas <=10){
                 $this->nPlantas=$nPlantas;
             }else{
                 echo "Error en el atributo numero de plantas";
@@ -38,14 +38,12 @@
             }   
         }   
 
+        //consultor = get()
         public function __get($atributo){
             return $this->$atributo;
         }
 
-        public function __set($atributo, $valor){
-            $this->$atributo=$valor;
-        }
-
+              
         function __toString()
         {
             return "<p>Ciudad: " . $this->ciudad . "<br></p><p>Calle: " . $this->calle . 
@@ -59,10 +57,8 @@
             
         }
 
-    }
+        
 
-    $d1 = new Dimensiones(2,3,4);
-    $l1 = new Local ("Sevilla", "calle", 2,$d1);
-    var_dump($d1 instanceof Dimensiones);
+    }
 
 ?>
