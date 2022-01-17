@@ -1,5 +1,8 @@
 <?php
-    abstract class Vehiculo{
+
+    /*con abstract no hace falta implementar todos los metodos
+    de la interfaz a la clase vehiculo*/
+    abstract class Vehiculo implements IVehiculo{
 
         private $color;
         private $peso;
@@ -16,11 +19,21 @@
             return $this->$atributo;
         }
     
-        public function __set($atributo, $valor)
-        {                  
-            $this->$atributo=$valor; 
+        public function __set($atributo, $valor){                  
+            $this->$atributo=$valor;
+            
+            switch($atributo){
+                case "color":
+                    $this->setColor($valor);
+                case "peso":
+                    if($valor<2100)
+                        $this->$atributo=$valor;
+                    else
+                        echo "Error: el peso total no debe superar 2100 kilos. <br>";                        
+                    break;
+            }            
         }
-
+     
         public function setColor($color){
             $this->color = $color;
             self::$numero_cambio_color += 1;
@@ -31,12 +44,9 @@
             if (($this->peso + $peso) <= 2100){
                 $this->peso = $peso;
             }else{
-                echo ("Error: el peso total no debe superar 2100 kilos.");
+                echo ("Error: el peso total no debe superar 2100 kilos. ");
                 die();
-
-            }
-
-            
+            }            
         }
 
         function circula()
@@ -53,6 +63,9 @@
             echo "<br>";
             echo "Numero cambio de color: " . self::$numero_cambio_color;
             echo "<br>";
+
+            /*el metodo get_class se usa para mencionar
+            a la clase cuyo objeto se encuentra como parámetro*/
 
             if(get_class($objeto)== "Cuatro_ruedas" || get_class($objeto)== "Camion" || get_class($objeto)== "Coche"){
                 echo "Numero de puertas: " . $objeto->numero_puertas;
@@ -73,8 +86,7 @@
                 echo "Longitud: " . $objeto->longitud;
                 echo "<br>";
             }
-        }
-        
+        }        
     }
 ?>
 

@@ -26,8 +26,11 @@
     $ca1 = new Camion("Blanco", 6000, 0, 0);
     $ca1->añadir_persona(84);
     $ca1->repintar("Azul");
-    $ca1->numero_puertas = 2;    
-    $ca1->ver_atributo($ca1);
+    $ca1->numero_puertas = 2;
+    //Opcion a válida
+    Vehiculo::ver_atributo($ca1);    
+    //Opcion b no válida
+    //$ca1->ver_atributo($ca1);    
     echo "<br>"; 
     
 ?>

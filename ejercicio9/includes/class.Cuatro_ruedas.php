@@ -1,7 +1,4 @@
 <?php
-
-
-    
     class Cuatro_ruedas extends Vehiculo{
 
         var $numero_puertas; 
@@ -14,9 +11,10 @@
         public function __set($name, $value){
             if (property_exists(get_class(),$name)) {
                 $this->$name=$value;
-             }else{
+            }else{
                 parent::__set($name,$value);
-             }        }
+         }        
+        }
 
         public function __get($name){
             if (property_exists(get_class(),$name)) {

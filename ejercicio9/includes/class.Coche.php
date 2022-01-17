@@ -1,6 +1,4 @@
-<?php   
-
-
+<?php  
     class Coche extends Cuatro_ruedas{
 
         var $numero_cadenas_nieve; 
@@ -31,7 +29,11 @@
         }
 
         function quitar_cadenas_nieve($num){
-            $this->numero_cadenas_nieve = $this->numero_cadenas_nieve - $num;
+            if ($this->numero_cadenas_nieve > $num){
+                $this->numero_cadenas_nieve = $this->numero_cadenas_nieve - $num;
+            }else{
+                $this->numero_cadenas_nieve = 0;
+            }    
         }
 
         function añadir_persona($peso_persona)
@@ -39,8 +41,8 @@
             parent::añadir_persona($peso_persona);
 
             if ($this->peso >= 1500 && $this->numero_cadenas_nieve <=2) {
-                echo "Atención, ponga 4 cadenas para la nieve.";
-                echo "<br>";
+                echo "Atención, ponga 4 cadenas para la nieve. <br>";
+                
             }
         }
         
