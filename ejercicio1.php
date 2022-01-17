@@ -73,5 +73,6 @@
         $p1 = new Persona("Javier","49028792","Hombre","75kg","1,80, ", );
 
         $p1->mostrar();
+        echo "<br>";
 
     ?>

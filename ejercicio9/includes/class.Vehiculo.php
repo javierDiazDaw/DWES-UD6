@@ -33,6 +33,17 @@
                     break;
             }            
         }
+
+        /**
+         * Self hace referencia a la clase actual y se usa cuando instancia dicha clase, 
+         * es decir se usan métodos estáticos.
+         * 
+         * This hace referencia al objeto actual, es decir, cuando una clase si tiene instancia. 
+         * No se puede hacer referencia a métodos estáticos usando this pero si a métodos 
+         * públicos, privados y protegidos.
+         * 
+         * https://blogprog.gonzalolopez.es/articulos/cuando-usar-self-o-this-en-php.html
+         */
      
         public function setColor($color){
             $this->color = $color;

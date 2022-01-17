@@ -28,11 +28,11 @@
 
         function __toString()
         {
-            return parent::__toString() . ", " . $this->nombreEmpresa;
+            return parent::__toString() . ", nombre empresa: " . $this->nombreEmpresa;
         }
     }
 
-    $t3 = new Trabajador("sara","12345678","Hombre","75kg","1,80", "empresa Jose");
+    $t3 = new Trabajador("Sara","12345678","Hombre","75kg","1,80", "Repuestos Manolito");
 
        echo $t3;
 ?>

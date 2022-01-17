@@ -29,6 +29,11 @@ class Vivienda{
                     break;
         } 
     }
+
+    /*function __toString()
+    {
+        return $this-> tipoVivienda . ", " . $this-> valorMercado;
+    }*/
 }
 
     $miCasa = new Vivienda("casa", 205);
@@ -42,4 +47,7 @@ class Vivienda{
     echo "<br>";
     $miCasa->valorMercado="0";
     echo $miCasa->valorMercado;
+    echo "<br>";
+    echo "<br>";
+    //echo $miCasa;
 ?>

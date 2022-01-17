@@ -28,7 +28,7 @@
         }
     }
 
-        $t2 = new Trabajador("Jose"," 12345678 "," Hombre "," 75kg ","1,80, "," empresa Jose ", );
+        $t2 = new Trabajador("Jose"," 12345678 "," Hombre "," 75kg ","1,80, "," Rpuestos Manolito ", );
 
         $t2->mostrarCompleto();
 ?>
