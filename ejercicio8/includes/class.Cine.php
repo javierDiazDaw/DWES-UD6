@@ -1,7 +1,7 @@
 <?php
     class Cine extends LocalComercial{
         
-        private /*string*/ $aforoSala;
+        private string $aforoSala;
 
         function __construct($ciudad, $calle, $nPlantas, 
         $dimensiones, $razonSocial, $numeroLicencia, $aforoSala){

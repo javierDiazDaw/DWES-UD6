@@ -1,8 +1,8 @@
 <?php
 class Dimensiones {
-    private /*float*/ $alto;
-    private /*float*/ $ancho;
-    private /*float*/ $largo;
+    private float $alto;
+    private float $ancho;
+    private float $largo;
 
     function __construct($alto, $ancho, $largo)
     {

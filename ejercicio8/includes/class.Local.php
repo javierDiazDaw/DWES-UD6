@@ -1,10 +1,10 @@
 <?php
 
     class Local{
-        private /*string*/ $ciudad;
-        private /*string*/ $calle;
-        private /*int*/ $nPlantas;        
-        private /*Dimensiones*/ $dimensiones;
+        private string $ciudad;
+        private string $calle;
+        private int $nPlantas;        
+        private Dimensiones $dimensiones;
         
 
         function __construct($ciudad, $calle, $nPlantas, $dimensiones){

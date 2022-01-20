@@ -1,7 +1,7 @@
 <?php
     class LocalComercial extends Local{
-        private /*string*/ $razonSocial;
-        private /*string*/ $numeroLicencia; 
+        private string $razonSocial;
+        private string $numeroLicencia; 
 
         function __construct($ciudad, $calle, $nPlantas, 
         $dimensiones, $razonSocial, $numeroLicencia){
