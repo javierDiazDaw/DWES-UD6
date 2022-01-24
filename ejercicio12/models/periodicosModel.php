@@ -3,27 +3,27 @@
     function getConnection(){
         $user='developer';
         $password = 'developer';
-        return new PDO('mysql:host=localhost;dbname=biblioteca', $user, $password);
+        return new PDO('mysql:host=localhost;dbname=periodico', $user, $password);
     }
 
-    function getLibros(){
+    function getPeriodicos(){
         $db = getConnection();
-        $result = $db->query('SELECT titulo, precio FROM libros');
+        $result = $db->query('SELECT nombre, fecha FROM periodico');
         $libros = array ();
         while ($libro = $result->fetch())
-            $libros[] = $libro;
+        $libros[] = $libro;
 
         return $libros;
     }
 
-    function mostrarLibro($id){
+    function mostrarPeriodico($id){
         $db = getConnection();
-        $result = $db->prepare('SELECT * FROM libros WHERE id = ?');
+        $result = $db->prepare('SELECT * FROM periodico WHERE id = ?');
         $result->bindParam(1, $id);
         $result->execute();
         $libros = array ();
         while ($libro = $result->fetch())
-            $libros[] = $libro;
+        $libros[] = $libro;
 
         return $libros;
     }

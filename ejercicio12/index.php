@@ -2,7 +2,7 @@
     //la carpeta donde buscamos los controladores
     define ('CONTROLLERS_FOLDER', "controllers/");
     //si no se indica un controlador, este es el controlador que se usará
-    define ('DEFAULT_CONTROLLER', "periodicos");
+    define ('DEFAULT_CONTROLLER', "libros");
     //si no se indica una accion, esta accion es la que se usará
     define ('DEFAULT_ACTION', 'listar');  
 
