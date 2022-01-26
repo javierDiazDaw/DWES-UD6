@@ -22,25 +22,25 @@
         } catch (PDOException $e) {
             return false;
         }
-        $conexion = null;
+        
     }
 
-    function eliminaElemento($id){
+    function eliminaCancion($id){
         try{
-            $conexion = new PDO("mysql:host=$GLOBALS[servidor];dbname=$GLOBALS[baseDatos]", $GLOBALS['usuario'], $GLOBALS['pass']);
-            $consulta =$conexion->prepare("DELETE FROM cancion WHERE id=:id"); 
+            $db = getConnection();
+            $consulta = $db->prepare("DELETE FROM cancion WHERE id=:id"); 
             $parametros = array(":id"=>$id);
             return $consulta->execute($parametros);
         } catch(PDOException $e){
             return false;
         }
-        $conexion = null; 
+        
     }
 
-    function editarElemento($id, $nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
+    function editarCancion($id, $nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
         try{
-            $conexion = new PDO("mysql:host=$GLOBALS[servidor];dbname=$GLOBALS[baseDatos]", $GLOBALS['usuario'], $GLOBALS['pass']);
-            $consulta =$conexion->prepare("UPDATE cancion SET nombre=?,genero=?,autor=?,duracion=?,copyright=?,lanzamiento=?,imagencd=? WHERE id=?"); 
+            $db = getConnection();
+            $consulta = $db->prepare("UPDATE cancion SET nombre=?,genero=?,autor=?,duracion=?,copyright=?,lanzamiento=?,imagencd=? WHERE id=?"); 
             $consulta->bindParam(8,$id);
             $consulta->bindParam(1,$nombre);
             $consulta->bindParam(2,$genero);
@@ -51,7 +51,7 @@
             $consulta->bindParam(7,$imagencd);
         
             $consulta->execute();
-            $conexion = null; 
+             
         
             $Lineas = $consulta -> rowCount();
             if ($Lineas == 0) {
@@ -66,9 +66,8 @@
         
     }
 
-    
 
-    function obtenerTodos(){
+    function obtenerCanciones(){
         try {    
             $db = getConnection();
             $consulta = $db->prepare("SELECT id, nombre, genero, duracion, lanzamiento FROM cancion"); 
@@ -85,11 +84,10 @@
         $conexion = null;
     }
 
-    function insertaElemento($nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
+    function insertaCancion($nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
         try {   
-            $conexion = new PDO("mysql:host=$GLOBALS[servidor];dbname=$GLOBALS[baseDatos]", $GLOBALS['usuario'], $GLOBALS['pass']);        
-            //prepare: recibe la consulta pendiente de los valores insertados por el usuario.
-            $consulta =$conexion->prepare("INSERT INTO cancion (nombre, genero, autor, duracion, copyright, lanzamiento, imagencd) VALUES (?,?,?,?,?,?,?)"); 
+            $db = getConnection();
+            $consulta = $db->prepare("INSERT INTO cancion (nombre, genero, autor, duracion, copyright, lanzamiento, imagencd) VALUES (?,?,?,?,?,?,?)"); 
             //bindParam: asigna los valores a los parámetros definidos en la consulta.
             $consulta->bindParam(1,$nombre);
             $consulta->bindParam(2,$genero);
@@ -101,12 +99,12 @@
             //execute: ejecuta la consulta;
             $consulta->execute();
             // te devuelve un numero, si es mayor a 0 se ha hecho correctamente
-            $lastID = $conexion->lastInsertId();
+            $lastID = $db->lastInsertId();
             return $lastID;
         } catch (PDOException $e) {
             return false;
         }
-        $conexion = null;
+        
     }
 
 

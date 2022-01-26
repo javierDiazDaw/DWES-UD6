@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/botonera.css">
     <link rel="stylesheet" href="css/table.css">
-    <title>Lista cancion</title>
+    <title>una cancion</title>
 </head>
 <body>
     <nav>
