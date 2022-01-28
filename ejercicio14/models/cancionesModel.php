@@ -14,11 +14,8 @@
             $result = $db->prepare('SELECT * FROM cancion WHERE id = ?');
             $result->bindParam(1, $id);
             $result->execute();
-            $libros = array ();
-            while ($libro = $result->fetch())
-            $libros[] = $libro;
-
-        return $libros;
+            
+        return $result->fetch();
         } catch (PDOException $e) {
             return false;
         }
