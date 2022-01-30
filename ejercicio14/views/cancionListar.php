@@ -12,8 +12,8 @@
     <nav>
         <ul>
             <li><a href="index.php">Página principal</a></li>
-            <li><a href="create.php">Nuevo elemento</a></li>
-            <li><a class="active" href="list.php">Lista elementos</a></li>
+            <li><a href="?controller=canciones&action=form">Nuevo elemento</a></li>
+            <li><a class="active" href="?controller=canciones&action=listar">Lista elementos</a></li>
             <li><a href="import.php">Importar elementos</a></li>
         </ul>
     </nav>
@@ -31,9 +31,8 @@
             </tr>
         </thead>
         <tbody>
-           <!-- Aquí tendrás que mostrar las filas de la tabla-->
+           
            <?php
-                         
                             
             foreach($canciones as $fila ){
                 
@@ -54,9 +53,9 @@
                     echo $fila["lanzamiento"];
                     echo "</td>";
                     $id = $fila["id"];
-                    echo "<td><a href='view.php?id=$id'>Detalles</a></td>";
-                    echo "<td><a href='edit.php?id=$id'>Editar</a></td>";
-                    echo "<td><a href='delete.php?id=$id'>Borrar</a></td>";
+                    echo "<td><a href='?controller=canciones&action=unaCancion&id=$id'>Detalles</a></td>";
+                    echo "<td><a href='?controller=canciones&action=form&id=$id'>Editar</a></td>";
+                    echo "<td><a href='?controller=canciones&action=borrar&id=$id'>Borrar</a></td>";
                     echo "</td>";
                 echo"</tr>";                   
             }

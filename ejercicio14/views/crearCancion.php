@@ -19,7 +19,7 @@
                 <li><a href="import.php">Importar elementos</a></li>
             </ul>
         </nav>
-        <form class="form-register" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+        <form class="form-register" action="?controller=canciones&action=crear" method="post" enctype="multipart/form-data">
             <h2 class="form-titulo">Características:</h2>
             <div class="contenedor-inputs">
                 <input type="text" name="nombre" placeholder="Nombre" class="input-100" required>

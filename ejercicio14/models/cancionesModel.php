@@ -2,7 +2,7 @@
 
     function getConnection(){
         $usuario = "developer";
-    $pass = "developer";
+        $pass = "developer";
         return new PDO('mysql:host=localhost;dbname=musica', $usuario, $pass);
     }
 

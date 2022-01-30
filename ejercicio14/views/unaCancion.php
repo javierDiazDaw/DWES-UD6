@@ -25,9 +25,8 @@
                 <th>Genero</th>
                 <th>Duracion</th>
                 <th>Lanzamiento</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-                <th>Mostrar</th>
+                <th>Imagen cd</th>                
+                <th>Volver</th>
             </tr>
         </thead>
         <tbody>
@@ -35,31 +34,34 @@
            <?php
                          
                             
-            foreach($cancion as $fila ){
-                
+           
+               
                 echo "<tr>";
                     echo "<td>";
-                    echo $fila["id"];
+                    echo $cancion["id"];
                     echo "</td>";
                     echo "<td>";
-                    echo $fila["nombre"];
+                    echo $cancion["nombre"];
                     echo "</td>";
                     echo "<td>";
-                    echo $fila["genero"];
+                    echo $cancion["genero"];
                     echo "</td>";
                     echo "<td>";
-                    echo $fila["duracion"];
+                    echo $cancion["duracion"];
                     echo "</td>";
                     echo "<td>";
-                    echo $fila["lanzamiento"];
+                    echo $cancion["lanzamiento"];
                     echo "</td>";
-                    $id = $fila["id"];
-                    echo "<td><a href='view.php?id=$id'>Detalles</a></td>";
-                    echo "<td><a href='edit.php?id=$id'>Editar</a></td>";
-                    echo "<td><a href='delete.php?id=$id'>Borrar</a></td>";
+                    $id = $cancion["id"];
+                    echo "</td>";
+                    echo "<td>";
+                    echo "<img  src= 'images/" .$cancion["imagencd"]. " '>";                   
+                    echo "</td>";
+                    echo "<td>";
+                    echo "<a href='?controller=canciones&action=listar'>Volver</a>";
                     echo "</td>";
                 echo"</tr>";                   
-            }
+           
 
             echo "</table>";
 
