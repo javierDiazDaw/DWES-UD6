@@ -12,27 +12,28 @@
         try {
 
             $db = getConnection();
-            $result = $db->prepare("SELECT * FROM usuario WHERE username = ?");           
+            $result = $db->prepare("SELECT * FROM usuario WHERE usuario = ?");           
             $result->bindParam(1, $username);
             $result->execute();
             
         return $result->fetch();
         } catch (PDOException $e) {
             return false;
-        }
-        
+        }        
     }
+
+
 
     /*
     * Login.
     */
-    function login($usermane, $password) {
+    // function comprobarUsuario($usuario, $contrasenia) {
 
-        $user = getUser($usermane);
+    //     $user = getUser($usuario);
 
-        // Realizamos la verificacion de la contraseña.
-        $result = password_verify($password, $user['password']);
+    //     // Realizamos la verificacion de la contraseña.
+    //     $result = password_verify($contrasenia, $user['contrasenia']);
 
-        return $result;
-    }
+    //     return $result;
+    // }
 ?>

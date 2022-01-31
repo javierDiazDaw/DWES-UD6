@@ -2,9 +2,9 @@
     //la carpeta donde buscamos los controladores
     define ('CONTROLLERS_FOLDER', "controllers/");
     //si no se indica un controlador, este es el controlador que se usará
-    define ('DEFAULT_CONTROLLER', "canciones");
+    define ('DEFAULT_CONTROLLER', "usuario");
     //si no se indica una accion, esta accion es la que se usará
-    define ('DEFAULT_ACTION', 'listar');  
+    define ('DEFAULT_ACTION', 'login');  
 
     $controller = DEFAULT_CONTROLLER;
     if (!empty($_GET['controller'])) {

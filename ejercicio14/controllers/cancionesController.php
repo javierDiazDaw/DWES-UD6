@@ -1,5 +1,11 @@
 <?php
 
+    session_start();
+
+    if (!isset($_SESSION["usuario"])) {
+        header("Location: index.php");
+    }
+
     function listar(){
         require './models/cancionesModel.php';
     $canciones = obtenerCanciones();
