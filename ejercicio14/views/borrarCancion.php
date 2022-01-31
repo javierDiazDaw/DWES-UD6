@@ -14,9 +14,9 @@
     <nav>
         <ul>
             <li><a href="index.php">Página principal</a></li>
-            <li><a class="active" href="create.php">Nuevo elemento</a></li>
-            <li><a href="list.php">Lista elementos</a></li>
-            <li><a href="import.php">Importar elementos</a></li>
+            <li><a href="?controller=canciones&action=form">Nuevo elemento</a></li>
+            <li><a href="?controller=canciones&action=listar">Lista elementos</a></li>
+            <li><a href="?action=cerrarSesion">Cerrar sesion</a></li>
         </ul>
     </nav>
     <?php

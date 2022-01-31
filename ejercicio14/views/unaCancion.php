@@ -12,9 +12,9 @@
     <nav>
         <ul>
             <li><a href="index.php">Página principal</a></li>
-            <li><a href="create.php">Nuevo elemento</a></li>
-            <li><a class="active" href="list.php">Lista elementos</a></li>
-            <li><a href="import.php">Importar elementos</a></li>
+            <li><a href="?controller=canciones&action=form">Nuevo elemento</a></li>
+            <li><a class="active" href="?controller=canciones&action=listar">Lista elementos</a></li>
+            <li><a href="?action=cerrarSesion">Cerrar sesion</a></li>
         </ul>
     </nav>
     <table border="1">
@@ -32,10 +32,7 @@
         <tbody>
            <!-- Aquí tendrás que mostrar las filas de la tabla-->
            <?php
-                         
-                            
-           
-               
+                  
                 echo "<tr>";
                     echo "<td>";
                     echo $cancion["id"];

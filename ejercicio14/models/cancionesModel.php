@@ -6,64 +6,6 @@
         return new PDO('mysql:host=localhost;dbname=musica', $usuario, $pass);
     }
 
-    
-    function obtenerCancion($id){
-        
-        try {      
-            $db = getConnection();
-            $result = $db->prepare('SELECT * FROM cancion WHERE id = ?');
-            $result->bindParam(1, $id);
-            $result->execute();
-            
-        return $result->fetch();
-        } catch (PDOException $e) {
-            return false;
-        }
-        
-    }
-
-    function eliminaCancion($id){
-        try{
-            $db = getConnection();
-            $consulta = $db->prepare("DELETE FROM cancion WHERE id=:id"); 
-            $parametros = array(":id"=>$id);
-            return $consulta->execute($parametros);
-        } catch(PDOException $e){
-            return false;
-        }
-        
-    }
-
-    function editarCancion($id, $nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
-        try{
-            $db = getConnection();
-            $consulta = $db->prepare("UPDATE cancion SET nombre=?,genero=?,autor=?,duracion=?,copyright=?,lanzamiento=?,imagencd=? WHERE id=?"); 
-            $consulta->bindParam(8,$id);
-            $consulta->bindParam(1,$nombre);
-            $consulta->bindParam(2,$genero);
-            $consulta->bindParam(3,$autor);
-            $consulta->bindParam(4,$duracion);
-            $consulta->bindParam(5,$copyright);
-            $consulta->bindParam(6,$lanzamiento);
-            $consulta->bindParam(7,$imagencd);
-        
-            $consulta->execute();
-             
-        
-            $Lineas = $consulta -> rowCount();
-            if ($Lineas == 0) {
-                return false;
-            } else{
-                return true;
-            } 
-            
-        } catch(PDOException $e){
-            return false;
-        }
-        
-    }
-
-
     function obtenerCanciones(){
         try {    
             $db = getConnection();
@@ -73,12 +15,22 @@
             while($fila = $consulta->fetch(PDO::FETCH_BOTH)){
                 $array[]=$fila;
             }
-            return $array;
-            
+            return $array;            
         } catch (PDOException $e) {
             return false;
-        }
-        $conexion = null;
+        }        
+    }
+    
+    function obtenerCancion($id){        
+        try {      
+            $db = getConnection();
+            $result = $db->prepare('SELECT * FROM cancion WHERE id = ?');
+            $result->bindParam(1, $id);
+            $result->execute();            
+            return $result->fetch();
+        } catch (PDOException $e) {
+            return false;
+        }        
     }
 
     function insertaCancion($nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
@@ -100,14 +52,59 @@
             return $lastID;
         } catch (PDOException $e) {
             return false;
-        }
-        
+        }        
     }
 
+    function eliminaCancion($id){        
+        try {      
+            $db = getConnection();
+            $result = $db->prepare('DELETE FROM cancion WHERE id = ?');
+            $result->bindParam(1, $id);
+            $result->execute();            
+            return $result->fetch();
+        } catch (PDOException $e) {
+            return false;
+        }        
+    }
 
+    /*function eliminaCancion($id){
+        try{
+            $db = getConnection();
+            $consulta = $db->prepare("DELETE FROM cancion WHERE id=:id"); 
+            $parametros = array(":id"=>$id);
+            return $consulta->execute($parametros);
+        } catch(PDOException $e){
+            return false;
+        }        
+    }*/
+
+    function editarCancion($id, $nombre, $genero, $autor, $duracion, $copyright, $lanzamiento, $imagencd){
+        try{
+            $db = getConnection();
+            $consulta = $db->prepare("UPDATE cancion SET nombre=?,genero=?,autor=?,duracion=?,copyright=?,lanzamiento=?,imagencd=? WHERE id=?"); 
+            $consulta->bindParam(8,$id);
+            $consulta->bindParam(1,$nombre);
+            $consulta->bindParam(2,$genero);
+            $consulta->bindParam(3,$autor);
+            $consulta->bindParam(4,$duracion);
+            $consulta->bindParam(5,$copyright);
+            $consulta->bindParam(6,$lanzamiento);
+            $consulta->bindParam(7,$imagencd);
+        
+            $consulta->execute();            
+        
+            $Lineas = $consulta -> rowCount();
+            if ($Lineas == 0) {
+                return false;
+            } else{
+                return true;
+            } 
+            
+        } catch(PDOException $e){
+            return false;
+        }        
+    }    
 /*De acción: INSERT, UPDATE, DELETE. Se utiliza el método exec, devolviendo el número de registros afectados.
-  De obtención: SELECT. Se utiliza el método query, obteniendo el resultado como veremos a continuación.*/
-
-
-
+  De obtención: SELECT. Se utiliza el método query*/
+  
 ?>
